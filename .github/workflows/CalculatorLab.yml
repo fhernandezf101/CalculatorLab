@@ -17,6 +17,15 @@ jobs:
           node-version: 16
       - run: npm ci    
       - run: npm install
-      - run: npm test
+      
+jobs:
+  Install:  
+    steps:
+      - run: npm ci
+      - run: npm install prettier -D --save-extract
 
-  
+jobs:
+  Quality:
+    steps:
+      - run: npm ci
+      - run: npm test      
